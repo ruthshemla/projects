@@ -10,7 +10,6 @@ import { Add12Filled, MicRegular } from "@fluentui/react-icons";
 import centerBg from "./centerBg.png";
 import bgImage from "./bgImage.png";
 import "./App.css";
-import { Speaker020Filled } from "@fluentui/react-icons/lib/fonts";
 
 const buttonStyles = {
   width: 200,
