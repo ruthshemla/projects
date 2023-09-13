@@ -50,7 +50,12 @@ const App = () => {
         >
           {displayBot ? (
             <iframe
-              style={{ width: 1000, height: 600, borderRadius: 20 }}
+              style={{
+                width: 1100,
+                height: 600,
+                borderStyle: "inherit",
+                padding: 24,
+              }}
               src="https://healthcare-bot-3hr56khbhfp6u.azurewebsites.net"
             ></iframe>
           ) : (
