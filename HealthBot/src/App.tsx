@@ -1,9 +1,16 @@
 import React from "react";
-import { Button, Title1, ToggleButton } from "@fluentui/react-components";
-import { Add12Filled } from "@fluentui/react-icons";
+import {
+  Button,
+  ButtonProps,
+  Input,
+  Title1,
+  ToggleButton,
+} from "@fluentui/react-components";
+import { Add12Filled, MicRegular } from "@fluentui/react-icons";
 import centerBg from "./centerBg.png";
 import bgImage from "./bgImage.png";
 import "./App.css";
+import { Speaker020Filled } from "@fluentui/react-icons/lib/fonts";
 
 const buttonStyles = {
   width: 200,
@@ -24,7 +31,6 @@ const stepperBtnStyles = {
 
 const App = () => {
   const [selectedButton, setSelectedButton] = React.useState(0);
-  const [displayBot, setDisplayBot] = React.useState(false);
   return (
     <>
       <img
@@ -48,7 +54,7 @@ const App = () => {
             justifyContent: "space-around",
           }}
         >
-          {displayBot ? (
+          {selectedButton === 1 ? (
             <iframe
               style={{
                 width: 1100,
@@ -58,6 +64,14 @@ const App = () => {
               }}
               src="https://healthcare-bot-3hr56khbhfp6u.azurewebsites.net"
             ></iframe>
+          ) : selectedButton === 2 ? (
+            <>
+              <Input
+                contentAfter={<MicButton aria-label="Enter by voice" />}
+                style={{ width: 400, height: 40 }}
+                placeholder="Enter your image search string"
+              />
+            </>
           ) : (
             <>
               <ToggleButton
@@ -103,6 +117,16 @@ const App = () => {
 
 export default App;
 
+const MicButton: React.FC<ButtonProps> = (props) => {
+  return (
+    <Button
+      {...props}
+      appearance="transparent"
+      icon={<MicRegular />}
+      size="small"
+    />
+  );
+};
 const Stepper: React.FC<{
   selectedButton: number;
   setSelectedButton: React.Dispatch<React.SetStateAction<number>>;
